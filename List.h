@@ -52,8 +52,6 @@ public:
 
 	T getLast() const;
 
-	T& operator[](const int index);
-
 	friend std::ostream& operator << (std::ostream &out, const List<T> &list);
 };
 
@@ -129,23 +127,6 @@ void List<T>::clear()
 	while (Size)
 	{
 		deleteFirst();
-	}
-}
-
-
-template<typename T>
-T & List<T>::operator[](const int index)
-{
-	int counter=0;
-	Node<T> *current=this->head;
-	while (current!=NULL)
-	{
-		if (counter==index)
-		{
-			return current->data;
-		}
-		current=current->pNext;
-		counter++;
 	}
 }
 
