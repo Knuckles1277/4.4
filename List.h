@@ -20,7 +20,6 @@ class List
 	Node<T> *head;
 public:
 	List();
-	List(const int size, const List * head);
 	List(const List &list);
 	~List();
 
@@ -63,17 +62,17 @@ List<T>::List()
 }
 
 template<typename T>
-List<T>::List(const int size, const List * head)
-{
-	this->Size=size;
-	this->head=*head;
-}
-
-template<typename T>
 List<T>::List(const List &list)
 {
 	this->Size=list.size;
-	this->head=list.head;
+	Node<T> *p1=list.head;
+	Node<T> *p2=head;
+	for (int i=0; i<this->Size; i++)
+	{
+		p2->data=p1->data;
+		p1=p1->pNext;
+		p2=p2->pNext;
+	}
 }
 
 template<typename T>
