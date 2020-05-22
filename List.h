@@ -209,10 +209,15 @@ int List<T>::GetSize() const
 }
 
 template<typename T>
-bool List<T>::isContains(const int index) const
+bool List<T>::isContains(const int val) const
 {
-     if (index>0&&index<=this->Size) return true;
-        else return false;
+     Node<T> *p=head;
+    for (int i=0; i<Size-1; i++) 
+    {
+	    if (p->data==val) return true;
+	    p=p->pNext;
+    }
+    return false;
 }
 
 template<typename T>
